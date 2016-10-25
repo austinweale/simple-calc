@@ -52,7 +52,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func enterCommand(_ sender: AnyObject) {
-        let expression = self.textArea.text!
+        let expression = (self.textArea.text!).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let expressionArray = expression.components(separatedBy: " ")
+        print(expressionArray)
         clear()
     }
     
