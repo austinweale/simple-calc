@@ -21,17 +21,20 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet var wholeApp: UIView!
-    
+	
+		//text area for the input and answer display
     @IBOutlet weak var textArea: UILabel!
     
     var hasOperator = false
-
+	
+		//number related buttons function
     @IBAction func buttonTouch(_ sender: AnyObject) {
         let current = sender.titleLabel!!.text!
         let lastInput = self.textArea.text!
         self.textArea.text = "\(lastInput)\(current)"
     }
-    
+	
+		//operation related buttons. only allows one operator to be used
     @IBAction func operation(_ sender: AnyObject) {
         if(!hasOperator){
             hasOperator = !hasOperator
@@ -41,20 +44,24 @@ class ViewController: UIViewController {
             self.textArea.text = "\(lastInput) \(current) "
         }
     }
-    
+	
+		//clear button: clears the display
     @IBAction func clear(_ sender: AnyObject) {
         clear()
     }
-    
+	
+		//clears the display
     func clear(){
         hasOperator = false
         self.textArea.text = ""
     }
-    
+	
+		//for equals button: parses the input area and does the operation. displays answer in the input area 
+		//so you can use the answer for more operations
     @IBAction func enterCommand(_ sender: AnyObject) {
         let expression = (self.textArea.text!).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let expressionArray = expression.components(separatedBy: " ")
-        print(expressionArray)
+			
         clear()
         if(expressionArray.count == 3){
             let currentOperator = expressionArray[1]
@@ -81,13 +88,15 @@ class ViewController: UIViewController {
         }
         
     }
-    
+	
+		//add spaces for the multi-entry operations
     @IBAction func addSpace(_ sender: AnyObject) {
         hasOperator = true
         let lastInput = self.textArea.text!
         self.textArea.text = "\(lastInput) "
     }
-    
+	
+		//performs factorial on the input given that there is only one number entered
     @IBAction func factorial(_ sender: AnyObject) {
         let expression = (self.textArea.text!).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let expressionArray = expression.components(separatedBy: " ")
@@ -100,13 +109,15 @@ class ViewController: UIViewController {
             self.textArea.text = "\(result)"
         }
     }
-    
+	
+		//displays count of the input
     @IBAction func count(_ sender: AnyObject) {
         let expression = (self.textArea.text!).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let expressionArray = expression.components(separatedBy: " ")
         self.textArea.text = "\(expressionArray.count)"
     }
-    
+	
+		//displays average of all input
     @IBAction func avg(_ sender: AnyObject) {
         let expression = (self.textArea.text!).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let expressionArray = expression.components(separatedBy: " ")
