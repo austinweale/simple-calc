@@ -56,7 +56,30 @@ class ViewController: UIViewController {
         let expressionArray = expression.components(separatedBy: " ")
         print(expressionArray)
         clear()
+        if(expressionArray.count == 3){
+            let currentOperator = expressionArray[1]
+            let first = expressionArray[0].toInt()
+            let second = expressionArray[2].toInt()
+            var result = ""
+            switch currentOperator {
+            case "+":
+                result = first + second
+            case "-":
+                result = first - second
+            case "*":
+                result = first * second
+            case "/":
+                result = first / second
+            case "%":
+                result = first % second
+            default:
+                result = "error"
+            }
+            self.textArea.text = result
+        }
+        
     }
+    
     
 }
 
