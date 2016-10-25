@@ -82,6 +82,41 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func addSpace(_ sender: AnyObject) {
+        hasOperator = true
+        let lastInput = self.textArea.text!
+        self.textArea.text = "\(lastInput) "
+    }
     
+    @IBAction func factorial(_ sender: AnyObject) {
+        let expression = (self.textArea.text!).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let expressionArray = expression.components(separatedBy: " ")
+        if(expressionArray.count == 1){
+            let num : Int = Int(expressionArray[0])!
+            var result = 1
+            for i in 1...num {
+                result *= i
+            }
+            self.textArea.text = "\(result)"
+        }
+    }
+    
+    @IBAction func count(_ sender: AnyObject) {
+        let expression = (self.textArea.text!).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let expressionArray = expression.components(separatedBy: " ")
+        self.textArea.text = "\(expressionArray.count)"
+    }
+    
+    @IBAction func avg(_ sender: AnyObject) {
+        let expression = (self.textArea.text!).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let expressionArray = expression.components(separatedBy: " ")
+        let count = expressionArray.count
+        
+        var result = 0
+        for i in 0...count {
+            result += i
+        }
+        self.textArea.text = "\(result / count)"
+    }
 }
 
