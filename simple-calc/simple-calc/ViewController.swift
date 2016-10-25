@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var textArea: UILabel!
     
     var hasOperator = false
+		
 	
 		//number related buttons function
     @IBAction func buttonTouch(_ sender: AnyObject) {
@@ -93,6 +94,7 @@ class ViewController: UIViewController {
         hasOperator = true
         let lastInput = self.textArea.text!
         self.textArea.text = "\(lastInput) "
+			
     }
 	
 		//performs factorial on the input given that there is only one number entered
