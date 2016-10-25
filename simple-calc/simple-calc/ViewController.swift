@@ -58,9 +58,11 @@ class ViewController: UIViewController {
         clear()
         if(expressionArray.count == 3){
             let currentOperator = expressionArray[1]
-            let first = expressionArray[0].toInt()
-            let second = expressionArray[2].toInt()
-            var result = ""
+            
+        
+            let first: Int = Int(expressionArray[0])!
+            let second : Int = Int(expressionArray[2])!
+            var result = 0
             switch currentOperator {
             case "+":
                 result = first + second
@@ -73,9 +75,9 @@ class ViewController: UIViewController {
             case "%":
                 result = first % second
             default:
-                result = "error"
+                result = -1
             }
-            self.textArea.text = result
+            self.textArea.text = "\(result)"
         }
         
     }
