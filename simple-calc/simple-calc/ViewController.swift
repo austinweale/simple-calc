@@ -65,7 +65,6 @@ class ViewController: UIViewController {
         clear()
         if(expressionArray.count == 3){
             let currentOperator = expressionArray[1]
-            
         
             let first: Int = Int(expressionArray[0])!
             let second : Int = Int(expressionArray[2])!
@@ -85,11 +84,11 @@ class ViewController: UIViewController {
                 result = -1
             }
             self.textArea.text = "\(result)"
-        }
-        
+			}
     }
 	
-		//add spaces for the multi-entry operations
+		//add spaces for the multi-entry operations, won't allow the user to enter other 
+		//operations beside other spaces
     @IBAction func addSpace(_ sender: AnyObject) {
         hasOperator = true
         let lastInput = self.textArea.text!
