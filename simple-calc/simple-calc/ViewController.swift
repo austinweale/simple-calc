@@ -21,9 +21,12 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet var wholeApp: UIView!
+    
+    @IBOutlet weak var textArea: UILabel!
 
     @IBAction func buttonTouch(_ sender: AnyObject) {
-        print("0")
+        let current = sender.
+        self.textArea.text = "0"
     }
 }
 
