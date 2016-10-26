@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var textArea: UILabel!
     
     var hasOperator = false
-		
+	
 	
 		//number related buttons function
     @IBAction func buttonTouch(_ sender: AnyObject) {
@@ -125,8 +125,8 @@ class ViewController: UIViewController {
         let count = expressionArray.count
         
         var result = 0
-        for i in 0...count {
-            result += i
+        for i in 0...count - 1 {
+            result += Int(expressionArray[i])!
         }
         self.textArea.text = "\(result / count)"
     }
